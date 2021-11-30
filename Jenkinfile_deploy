@@ -1,15 +1,30 @@
 pipeline{
-  agent any
-
+  agent {
+        node {
+            label '10'
+            
+        }
+    }   
   stages{
     stage('Clone Git'){
       steps{
-        git url: 'git@github.com:kulinych/Project.git', branch: master
+        git url: 'https://github.com/Kulinych/Project.git', branch: 'master'
        }
     }
+    stage('Show files'){
+      steps{
+          sh"""
+          ls -l 
+          """
+      } 
+    }  
     stage('Start Ansible'){
       steps{
-        ansiblePlaybook credentialsId: 'Host10', disableHostKeyChecking: true, installation: 'ansible', inventory: 'ansible/inv.yaml', playbook: 'ansible/deploy.yaml', colorized: true
+        ansiblePlaybook ( 
+            inventory: './ansible/inv.yaml',
+            playbook: './ansible/deploy.yaml', 
+            colorized: true
+        )
       }
     }
   }
