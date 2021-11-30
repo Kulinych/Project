@@ -1,5 +1,5 @@
 ---
-- hosts: host10
+- hosts: host9
   roles:
     - docker_install
   
@@ -22,11 +22,11 @@
 
     - name: Create directory for app 
       file: 
-        path: /ha/run
-        state: directory
-        owner: jenkins
-        group: jenkins
-        mode: 0755
+	path: /ha/run
+	state: directory
+	owner: jenkins
+	group: jenkins
+	mode: 0755
 
     - name: Create config file for 
       copy:
@@ -57,19 +57,19 @@
           # Learn more at https://www.home-assistant.io/docs/configuration/secrets/
           some_password: welcome
           db_url: mysql://ha:test@db:3306/hassio?charset=utf8mb4
-
-#    - name: Copy file docker-compose for the run
-#      copy:
-#        src: /home/jenkins/workspace/{{ jenkins_task_name }}/docker-compose.yaml
-#        dest: /ha/app
-#        owner: jenkins
-#        group: jenkins
-#        mode: 0644
-       
+	
+    - name: Copy file docker-compose for the run
+      copy:
+        src: {{ WORKSPACE }}/docker-compose.yaml
+        dest: /ha/app
+        owner: jenkins
+        group: jenkins
+        mode: 0644
+	
     - name: Deploy app and db
-      shell: docker-compose -f docker-compose.yaml up -d
+      shell: docker-compose -f deploy.yaml -d
       args:
-        chdir: /ha/run
+	chdir: /ha/run
 
     - name: Curl and check output
       block:

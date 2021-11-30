@@ -10,5 +10,5 @@ work_sa_host:
   children:
     work_host: 
       hosts:         
-        host10:
-          ansible_host: 192.168.202.10
+        host9:
+          ansible_host: 192.168.202.9
