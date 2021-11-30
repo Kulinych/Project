@@ -71,6 +71,10 @@
       args:
         chdir: /ha/run
 
+    - name: Pause for run applications
+      pause:
+        seconds: 15
+
     - name: Curl and check output
       block:
       - name: Curl content
