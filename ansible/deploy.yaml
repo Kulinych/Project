@@ -90,7 +90,7 @@
 
     - name: Send notification message via Slack when comleted
       slack:
-        token: B02MGAHSJQP/o67XgrLnSC6f7ij5oIR18V0q
+        token: TFBPBNB2L/B02MGAHSJQP/o67XgrLnSC6f7ij5oIR18V0q
         msg: '{{ inventory_hostname }} completed'
         channel: '#coolnoti'
         color: good
