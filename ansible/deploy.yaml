@@ -81,8 +81,9 @@
         uri:
           url: "http://127.0.0.1:8123"
           return_content: yes
+          status_code: 200
         register: content
-        failed_when: "'Home assistant' not in content.content"
+        failed_when: "'Home' not in content.content"
     - name: Print content
       debug:
         msg: "{{ content }}"
