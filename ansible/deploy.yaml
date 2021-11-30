@@ -84,8 +84,8 @@
         msg: "{{ content }}"
 
     - name: Send notification message via Slack when comleted
-      community.general.slack:
-        token: TFBPBNB2L/B02MGAHSJQP/o67XgrLnSC6f7ij5oIR18V0q
+      slack:
+        token: B02MGAHSJQP/o67XgrLnSC6f7ij5oIR18V0q
         msg: '{{ inventory_hostname }} completed'
         channel: '#coolnoti'
-      delegate_to: localhost
+        color: good
