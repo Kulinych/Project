@@ -22,11 +22,11 @@
 
     - name: Create directory for app 
       file: 
-	path: /ha/run
-	state: directory
-	owner: jenkins
-	group: jenkins
-	mode: 0755
+        path: /ha/run
+        state: directory
+        owner: jenkins
+        group: jenkins
+        mode: 0755
 
     - name: Create config file for 
       copy:
