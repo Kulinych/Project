@@ -60,16 +60,16 @@
 
     - name: Copy file docker-compose for the run
       copy:
-        src: "{{ WORKSPACE }}"/docker-compose.yaml
+        src: "{{ WORKSPACE }}/docker-compose.yaml"
         dest: /ha/app
         owner: jenkins
         group: jenkins
         mode: 0644
-	
+        
     - name: Deploy app and db
       shell: docker-compose -f deploy.yaml -d
       args:
-	chdir: /ha/run
+        chdir: /ha/run
 
     - name: Curl and check output
       block:
