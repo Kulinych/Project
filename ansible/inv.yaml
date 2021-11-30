@@ -1,12 +1,12 @@
-jump_sa:
-  hosts:
-    bridge_sa:
-       ansible_host: 178.124.206.53
-       ansible_user: jump_sa
-work_sa_host:
-  vars:
-    ansible_user: root 
-    ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p -q jump_sa@178.124.206.53"'
+#jump_sa:
+#  hosts:
+#    bridge_sa:
+#       ansible_host: 178.124.206.53
+#       ansible_user: jump_sa
+#work_sa_host:
+#  vars:
+#    ansible_user: root 
+#    ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p -q jump_sa@178.124.206.53"'
   children:
     work_host: 
       hosts:         
