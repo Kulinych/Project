@@ -60,7 +60,7 @@
 
     - name: Copy file docker-compose for the run
       copy:
-        src: {{ WORKSPACE }}/docker-compose.yaml
+        src: "{{ WORKSPACE }}"/docker-compose.yaml
         dest: /ha/app
         owner: jenkins
         group: jenkins
