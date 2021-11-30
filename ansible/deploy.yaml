@@ -67,7 +67,7 @@
 #        mode: 0644
        
     - name: Deploy app and db
-      shell: docker-compose -f deploy.yaml -d
+      shell: docker-compose -f docker-compose.yaml -d
       args:
         chdir: /ha/run
 
