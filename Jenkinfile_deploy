@@ -1,0 +1,24 @@
+pipeline{
+  agent any
+
+  stages{
+    stage('Clone Git'){
+      steps{
+        git url: 'git@github.com:kulinych/Project.git', branch: master
+       }
+    }
+    stage('Start Ansible'){
+      steps{
+        ansiblePlaybook credentialsId: 'Host10', disableHostKeyChecking: true, installation: 'ansible', inventory: 'ansible/inv.yaml', playbook: 'ansible/deploy.yaml', colorized: true
+      }
+    }
+  }
+  post {
+        success {
+            slackSend (color: '#00FF00', message: "SUCCESSFULL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+        }
+        failure {
+            slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+        }
+    }
+}
