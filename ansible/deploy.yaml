@@ -57,7 +57,7 @@
           # Learn more at https://www.home-assistant.io/docs/configuration/secrets/
           some_password: welcome
           db_url: mysql://ha:test@db:3306/hassio?charset=utf8mb4
-	
+
     - name: Copy file docker-compose for the run
       copy:
         src: {{ WORKSPACE }}/docker-compose.yaml
