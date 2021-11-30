@@ -58,13 +58,13 @@
           some_password: welcome
           db_url: mysql://ha:test@db:3306/hassio?charset=utf8mb4
 
-    - name: Copy file docker-compose for the run
-      copy:
-        src: /home/jenkins/workspace/{{ jenkins_task_name }}/docker-compose.yaml
-        dest: /ha/app
-        owner: jenkins
-        group: jenkins
-        mode: 0644
+#    - name: Copy file docker-compose for the run
+#      copy:
+#        src: /home/jenkins/workspace/{{ jenkins_task_name }}/docker-compose.yaml
+#        dest: /ha/app
+#        owner: jenkins
+#        group: jenkins
+#        mode: 0644
        
     - name: Deploy app and db
       shell: docker-compose -f deploy.yaml -d
