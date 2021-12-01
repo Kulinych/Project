@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: 0.0.1
+description: md-sa2-18-21
+name: md-sa2-18-21
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
