@@ -58,6 +58,26 @@
           some_password: welcome
           db_url: mysql://ha:test@db:3306/hassio?charset=utf8mb4
 
+    - name: Create scenes file 
+      copy:
+        dest: /ha/scenes.yaml
+        content: |
+
+    - name: Create scripts file 
+      copy:
+        dest: /ha/scripts.yaml
+        content: |
+
+    - name: Create automations file 
+      copy:
+        dest: /ha/automations.yaml
+        content: |
+
+    - name: Create groups file 
+      copy:
+        dest: /ha/groups.yaml
+        content: |
+
     - name: Copy file docker-compose for the run
       copy:
         src: "{{ WORKSPACE }}/docker-compose.yaml"
