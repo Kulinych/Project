@@ -6,8 +6,7 @@ pipeline {
     }
     agent {
         node {
-            label 'master'
-            
+            label 'master'  
         }
     }
     stages{
@@ -15,7 +14,7 @@ pipeline {
       steps{
         git url: 'https://github.com/Kulinych/project.git', branch: 'master'
       }    
-    }
+    }  
     stage('Show files'){
       steps{
           sh"""
