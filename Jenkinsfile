@@ -29,11 +29,17 @@ pipeline {
         } 
       }
     }
-    stage('push build') {
+    stage('install Helm chart'){
+      steps{ 
+          sh"""
+          helm upgrade --install --atomic md-sa2-18-21 --namespace default ./helm-chart --values ./helm-chart/values.yaml --set image.tag=$BUILD_NUMBER  
+           
+        """
+        }    
+    }
+    stage('Unit test') {
       steps {
-        script {
-        docker.withRegistry( '', registryCredential ) {
-        dockerImage.push()
+        sh 'docker run -ti ${dockerImage} python3 manage.py test -v 2'
         }
       }
     }
