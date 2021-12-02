@@ -1,3 +1,7 @@
 image: 
   repository: kulinych/md-sa2-18-21
   tag: 1 
+ingress:
+  enabled: true
+  hostname: project.k8s-10.sa
+  
