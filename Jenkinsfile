@@ -32,7 +32,7 @@ pipeline {
     stage('Unit test') {
       steps {
         sh """
-        docker run -ti $registry + ":$BUILD_NUMBER" python3 manage.py test -v 2
+        docker run -ti "$registry:$BUILD_NUMBER" python3 manage.py test -v 2
         """
         }
       }
