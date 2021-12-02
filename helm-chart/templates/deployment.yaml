@@ -20,5 +20,12 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-
+        volumeMounts:
+        - mountPath: /var/jenkins_home
+          name: jenkins-config
+  volumes:
+    - name: sqlitedb
+      nfs:
+        path: /mnt/IT-Academy/nfs-data/sa2-18-21/kulina/sqlite
+        server: 192.168.37.105
 
