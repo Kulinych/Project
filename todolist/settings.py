@@ -64,7 +64,7 @@ WSGI_APPLICATION = "todolist.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "/var/sqlite/db.sqlite3"),
+        "NAME": "/var/sqlite/db.sqlite3",
     }
 }
 
