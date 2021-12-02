@@ -5,7 +5,7 @@ ingress:
   enabled: true
   hostname: project.k8s-10.sa
 mariadb:
-  enabled: true
+  enabled: false
   architecture: standalone
   auth:
     database: todolist
