@@ -4,15 +4,3 @@ image:
 ingress:
   enabled: true
   hostname: project.k8s-10.sa
-mariadb:
-  enabled: false
-  architecture: standalone
-  auth:
-    database: todolist
-    username: test
-    password: test
-    rootPassword: roottest
-  primary:
-    persistence:
-      enabled: false
-  # storageClass: ""

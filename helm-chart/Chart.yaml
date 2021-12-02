@@ -4,8 +4,3 @@ description: md-sa2-18-21
 name: md-sa2-18-21
 version: 0.0.1
 kubeVersion: ">=1.16.0-0"
-dependencies:
-- name: mariadb
-  version: 9.7.1
-  repository: https://charts.bitnami.com/bitnami
-  condition: mariadb.enabled

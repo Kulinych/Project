@@ -48,7 +48,6 @@ pipeline {
     stage('install Helm chart'){
       steps{ 
           sh"""
-          helm dependency update ./helm-chart
           helm upgrade --install --atomic md-sa2-18-21 --namespace default ./helm-chart --values ./helm-chart/values.yaml --set image.tag=$BUILD_NUMBER  
         """
         }    
