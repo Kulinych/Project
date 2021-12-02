@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Release.Name }}
+  annotations:
+    "helm.sh/hook": "pre-install,pre-upgrade"
+spec:
+  template:
+    spec:
+      containers:
+      - name: app
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        command: ["manage.py", "migrate"]
+        volumeMounts:
+          - mountPath: /var/sqlite/
+            name: sqlitedb
+      volumes:
+        - name: sqlitedb
+          nfs:
+            path: /mnt/IT-Academy/nfs-data/sa2-18-21/kulina/jenkins
+            server: 192.168.37.105
+      restartPolicy: Never
