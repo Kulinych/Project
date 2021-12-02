@@ -10,7 +10,7 @@ spec:
       containers:
       - name: app
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        command: ["manage.py", "migrate"]
+        command: ["python3", "manage.py", "migrate"]
         volumeMounts:
           - mountPath: /var/sqlite/
             name: sqlitedb
