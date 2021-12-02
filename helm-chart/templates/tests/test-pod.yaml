@@ -12,5 +12,5 @@ spec:
       command:
         - /bin/sh
         - -ec
-        - curl {{ .Release.Name }}22.default.svc.cluster.local -svkL
+        - curl {{ .Release.Name }}.default.svc.cluster.local -svkL
   restartPolicy: Never
