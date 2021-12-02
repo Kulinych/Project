@@ -21,8 +21,8 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-        - mountPath: /var/jenkins_home
-          name: jenkins-config
+        - mountPath: /var/sqlite/
+          name: sqlitedb
   volumes:
     - name: sqlitedb
       nfs:
