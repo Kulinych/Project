@@ -29,6 +29,11 @@ pipeline {
         } 
       }
     }
+    stage('Unit test') {
+      steps {
+        sh 'docker run -ti ${dockerImage} python3 manage.py test -v 2'
+        }
+      }
     stage('install Helm chart'){
       steps{ 
           sh"""
@@ -36,13 +41,6 @@ pipeline {
            
         """
         }    
-    }
-    stage('Unit test') {
-      steps {
-        sh 'docker run -ti ${dockerImage} python3 manage.py test -v 2'
-        }
-      }
-    }
     }
     stage('install Helm chart'){
       steps{ 
@@ -53,8 +51,7 @@ pipeline {
         }    
     }
 }
-
-  post {
+post {
     always {
             deleteDir()
         }
