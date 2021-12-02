@@ -36,6 +36,14 @@ pipeline {
         """
         }
       }
+    stage('push build') {
+      steps {
+        script {
+        docker.withRegistry( '', registryCredential ) {
+        dockerImage.push()
+        }
+      }
+    }
     stage('install Helm chart'){
       steps{ 
           sh"""
