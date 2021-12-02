@@ -44,6 +44,7 @@ pipeline {
         }
       }
     }
+    }
     stage('install Helm chart'){
       steps{ 
           sh"""
