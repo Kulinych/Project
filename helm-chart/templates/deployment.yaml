@@ -26,6 +26,6 @@ spec:
       volumes:
         - name: sqlitedb
           nfs:
-            path: /mnt/IT-Academy/nfs-data/sa2-18-21/kulina/sqlite
+            path: /mnt/IT-Academy/nfs-data/sa2-18-21/kulina/jenkins
             server: 192.168.37.105
 
