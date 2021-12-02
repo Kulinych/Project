@@ -23,9 +23,9 @@ spec:
         volumeMounts:
         - mountPath: /var/sqlite/
           name: sqlitedb
-    volumes:
-      - name: sqlitedb
-        nfs:
-          path: /mnt/IT-Academy/nfs-data/sa2-18-21/kulina/sqlite
-          server: 192.168.37.105
+      volumes:
+        - name: sqlitedb
+          nfs:
+            path: /mnt/IT-Academy/nfs-data/sa2-18-21/kulina/sqlite
+            server: 192.168.37.105
 
